@@ -1,12 +1,16 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Sistema {
     public static void main(String[] args) {
         Scanner sistemaBanco = new Scanner(System.in);
         Scanner contrania = new Scanner(System.in);
         Scanner nombre = new Scanner(System.in);
+        Scanner ponContrania = new Scanner(System.in);
+        Scanner agregarDinero = new Scanner(System.in);
         boolean simbolo = true;
         boolean espacii = false; // este boolean lo hice para identificar cuando contra tendra un espacio por eso empieza como false
         int intentos = 3;
+        
         System.out.println("Cual es su nombre ?");
         String hola = nombre.nextLine();
         System.out.println("Hola " + hola + " Buen dia");
@@ -48,14 +52,52 @@ public class Sistema {
             }else{
                 System.out.println("Contraseña Creada correctamente !");
                 intentos = 0;
+                int op = 1;
+                while (op !=5){
+                    System.out.println("Bienvenid@ e banco estado");
+                    System.out.println("Porfavor escriba su contraseña");
+                    
+                    String contr = ponContrania.nextLine();
+                    if (contr.equals(contra)){
+                        System.out.println("Se accedio correctamente");
+                        System.out.println("");
+                        System.out.println("");
+                        int opBanco = sistemaBanco.nextInt();
+                        System.out.println("Opciones Banco Ricardo ");
+                        System.out.println("1.Deposito Dinero");
+                        System.out.println("2.Transferencia");
+                        System.out.println("3.Sacar Dinero");
+                        System.out.println("4.Ver saldo");
+                        System.out.println("5.salir");
+                        try{
+                            if (opBanco <= 0 && opBanco > 5){
+                                System.out.println("Error: Opcion No valida tiene que ser 1 2 o 3");
+                            }else if (opBanco == 1){
+                            double saldo = 0;
+                            double agregarDinero1 = agregarDinero.nextDouble();
+                            try{
+                                if(agregarDinero1 < 1){
+                                    System.out.println("Error: No puede agregar el Valor " +agregarDinero);
+                            }
+                            }catch(InputMismatchException e){
+                                System.out.println("Error: Tipo de dato no valido");
+                            }
+                            
+                            
+                            
+                            }
+                            
+                            
+                        }catch(InputMismatchException e){
+                            System.out.println("Error : Dato no valido");
+                        }
+
+                }
             }
-              
+            }
         }
-        int op = 0;
-        while (op == 5){
-            System.out.println("Bienvenid@ e banco estado");
-            System.out.println("Porfavor escriba su contraseña");
-        }
+        
+        
 
     }
 
