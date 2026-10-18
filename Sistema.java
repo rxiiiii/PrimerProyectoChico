@@ -39,13 +39,13 @@ public class Sistema {
 
             for (int i = 0; i < contra.length(); i++){
                 char simbo = contra.charAt(i);
-                if(simbo == '@' || simbo == '#' || simbo == '!'|| simbo == '&' || simbo == '/' || simbo == '(' || simbo == ')' || simbo == '=' || simbo == '?' || simbo == '¿' || simbo == '¡'){
+                if(simbo  =='@' || simbo == '#' || simbo == '!'|| simbo == '&' || simbo == '/' || simbo == '(' || simbo == ')' || simbo == '=' || simbo == '?' || simbo == '¿' || simbo == '¡'){
                     simbolo = false;
                 }
             }
             
             if(contra == null || contra.length() < 4){
-                System.out.println("Error : no puede valor nulo o tener menos de 4 caracteres");
+                System.out.println("Error : no puede valor vacio o tener menos de 4 caracteres");
                 intentos --;
             }else if(espacii == true){
                 System.out.println("Error : no debe de contener espacios !!");
@@ -90,8 +90,10 @@ public class Sistema {
                             }else if(agregarDinero1 > 4000000.0){
                                 System.out.println("Error : Acaba de superar el limite Puesto de dinero ");
                             }else{
+                                double acomuladorDinero = 0;
                                 double dineroAgregado = agregarDinero1 + saldo;
-                                System.out.println("El monto fue Agregado Correctamente : " + dineroAgregado + "$");
+                                acomuladorDinero += dineroAgregado;
+                                System.out.println("El monto fue Agregado Correctamente : " + acomuladorDinero + "$");
                                 dineroActivo = true;
                             }
                             }catch(InputMismatchException e){
@@ -110,6 +112,7 @@ public class Sistema {
                                         if(Character.isLetter(rut.charAt(i))){
                                             letrasAbc = true;
                                         }
+                                        
                                     }
 
                                     for (int i = 0; i < rut.length(); i++){
@@ -117,6 +120,7 @@ public class Sistema {
                                         if(guion1 == '-'){
                                             guion = false;
                                         }
+                                        
                                     }
 
                                     for (int i = 0; i < rut.length(); i++){
@@ -124,6 +128,7 @@ public class Sistema {
                                         if (espacio3 == ' '){
                                             espacio2 = true;
                                         }
+                                        
 
                                     }
 
@@ -132,6 +137,7 @@ public class Sistema {
                                         if(punto2 == '.'){
                                             punto = false;
                                         }
+                                        
                                     }
                                     
                                     if (letrasAbc == true){
@@ -144,21 +150,17 @@ public class Sistema {
                                         System.out.println("Error: Debe de tener 10 digitos el rut ! ");
                                     }else if(punto == true){
                                         System.out.println("Error : No debe contener espacios ! ");
-                                    }else if(rut.length() == 10 && punto == false && espacio2 == false && guion != true && letrasAbc == false){
-                                        System.out.println("hola");
+                                    }
+
+                                    if (rut.length() == 10 && letrasAbc == false && guion == false && espacio2 == false && punto == false){
+                                        System.out.println("Rut encontrado");
                                     }
 
                                     
 
                                     }
 
-                                    
-
-
-                                    
-                                    
                                 }
-
                             }catch(InputMismatchException e){
                                 System.out.println("Error : Dato no valido");         
                             }
