@@ -13,10 +13,11 @@ public class Sistema {
         boolean simbolo = true;
         boolean espacii = false; // este boolean lo hice para identificar cuando contra tendra un espacio por eso empieza como false
         boolean dineroActivo = false;
-        boolean letrasAbc = false; //esta variable para tener control que si tiene alguna letra el rut !
-        boolean espacio2 = false;
+        boolean letrasAbc = true; //esta variable para tener control que si tiene alguna letra el rut !
+        boolean espacio2 = true;
         boolean guion = true; //esta variable es para ver si el rut contiene un  ( - )
-        boolean punto = false;
+        boolean punto = true;
+        boolean rutencontrado = true;
         int intentos = 3;
         
         System.out.println("Cual es su nombre ?");
@@ -110,7 +111,7 @@ public class Sistema {
 
                                     for (int i = 0; i < rut.length(); i++){
                                         if(Character.isLetter(rut.charAt(i))){
-                                            letrasAbc = true;
+                                            letrasAbc = false;
                                         }
                                         
                                     }
@@ -126,7 +127,7 @@ public class Sistema {
                                     for (int i = 0; i < rut.length(); i++){
                                         char espacio3 = rut.charAt(i);
                                         if (espacio3 == ' '){
-                                            espacio2 = true;
+                                            espacio2 = false;
                                         }
                                         
 
@@ -139,22 +140,33 @@ public class Sistema {
                                         }
                                         
                                     }
-                                    
-                                    if (letrasAbc == true){
+        
+                                    if (letrasAbc == false){
                                         System.out.println("Error : No puede contener letras ! ");
-                                    }else if (guion != true){
+                                        
+                                    }else if (guion == false){
                                         System.out.println("Error : Debe de contener algun ( - ) ");
-                                    }else if (espacio2 == true){
+                                        
+                                    }else if (espacio2 == false){
                                         System.out.println("Error : No puede contener espacios ! ");
+                                        
                                     }else if (rut.length() <= 0 || rut.length() >10 ){
                                         System.out.println("Error: Debe de tener 10 digitos el rut ! ");
-                                    }else if(punto == true){
-                                        System.out.println("Error : No debe contener espacios ! ");
+                                        
+                                    }else if(punto == false){
+                                        System.out.println("Error : No debe contener puntos ! ");
+                                        
+                                    }else if (rut.length() == 10){
+                                        rutencontrado = false;
+                                        
+
                                     }
 
-                                    if (rut.length() == 10 && letrasAbc == false && guion == false && espacio2 == false && punto == false){
+                                    if(rutencontrado == true && letrasAbc == true && guion == true && espacio2 == true && punto == true){
                                         System.out.println("Rut encontrado");
                                     }
+
+                                   
 
                                     
 
