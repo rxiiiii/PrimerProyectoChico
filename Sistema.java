@@ -96,7 +96,7 @@ public class Sistema {
                                 System.out.println("Error: Tipo de dato no valido");
                             }
                             }else if (opBanco == 2){
-                                System.out.println("Hola " +hola + "ponga el rut de la persona que quiere depositarle : ");
+                                System.out.println("Hola " + hola + "ponga el rut de la persona que quiere depositarle : ");
                                 System.out.println("El rut debe de tener obligatoriamente estos requisitos ! ");
                                 System.out.println("1. tener si o si el -");
                                 System.out.println("2. no contener espacios");
